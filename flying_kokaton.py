@@ -27,7 +27,7 @@ def main():
         elif key_lst[pg.K_DOWN]:
             character_first_place_vertical=+1
         else:
-            character_first_place_becide=0
+            character_first_place_becide=-1
         if key_lst[pg.K_LEFT]:
             character_first_place_becide=-1
         elif key_lst[pg.K_RIGHT]:
