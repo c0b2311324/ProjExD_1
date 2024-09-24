@@ -19,17 +19,22 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-
-        character_rect.move_ip(-1,0)
+        character_first_place_becide=-1
+        character_first_place_vertical=0
         key_lst=pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            character_rect.move_ip(0,-1)
-        if key_lst[pg.K_DOWN]:
-            character_rect.move_ip(0,+1)
+            character_first_place_vertical=-1
+        elif key_lst[pg.K_DOWN]:
+            character_first_place_vertical=+1
+        else:
+            character_first_place_becide=0
         if key_lst[pg.K_LEFT]:
-            character_rect.move_ip(-1,0)
-        if key_lst[pg.K_RIGHT]:
-            character_rect.move_ip(+3,0)
+            character_first_place_becide=-1
+        elif key_lst[pg.K_RIGHT]:
+            character_first_place_becide=+2
+        else:
+            character_first_place_vertical=0
+        character_rect.move_ip(character_first_place_becide,character_first_place_vertical)
 
         x=-(tmr%3200)
         screen.blit(bg_img, [x, 0])
